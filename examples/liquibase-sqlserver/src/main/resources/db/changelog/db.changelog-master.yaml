@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1-create-example-table
+      author: dora
+      changes:
+        - createTable:
+            tableName: example
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: nvarchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: datetime2
+                  defaultValueComputed: GETUTCDATE()
+                  constraints:
+                    nullable: false
